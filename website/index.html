@@ -6,8 +6,16 @@
   <title>Spot Corrector</title>
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/animate.css">
+
   <script src="js/progressbar.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -16,11 +24,15 @@
         <div class="option">
           <img src="assets/home.png" class='home' >
         </div>
-        <div class="option">
-          <img src="assets/selectedPushup.png" class='home' >
+        <div class="option" id="pushup">
+          <a href="index.html">
+            <img src="assets/selectedPushup.png" class='home' >
+          </a>
         </div>
-        <div class="option">
+        <div class="option" id="squat">
+          <a href="squat.html">
           <img src="assets/squat.png" class='home' >
+        </a>
         </div>
         <div class="option">
           <img src="assets/situp.png" class='home' >
@@ -29,8 +41,8 @@
           <img src="assets/pullup.png" class='home' >
         </div>
       </div>
-      <div class='header'>Push-Ups Overview</div>
-      <div class="box data1">
+      <div class='header'>Push-Up Overview</div>
+      <div class="box data1" id="data1">
         <div class="header1">Overall Stats</div>
         <div class="statRow">
           <img src="assets/miniTime.png" class='miniIcon' />
@@ -48,68 +60,35 @@
           <img src="assets/miniChart.png" class='miniIcon' />
         </div>
       </div>
-      <div class="box data2">
+      <div class="box data2" id="data2">
         <canvas id="myChart2" width="90" height="70"></canvas>
-        <script>
-        var ctx = document.getElementById('myChart2').getContext('2d');
-var myChart = new Chart(ctx, {
-	type: 'bar',
-	data: {
-		labels: [1, 2, 3, 4, 5, 6, 7],
-		datasets: [
-			{
-				data: [12, 19, 3, 17, 28, 24, 7],
-				backgroundColor: [
-					'#04A5FF',
-					'#04A5FF',
-					'#04A5FF',
-					'#04A5FF',
-					'#04A5FF',
-					'#04A5FF',
-					'#04A5FF'
-				]
-			}
-		]
-	},
-	options: {
-		title: {
-			display: true,
-			text: 'Reps Per Minute',
-			fontColor: '#04A5FF',
-			fontSize: 14
-		},
-		legend: {
-			display: false
-		}
-	}
-});
-</script>
+
       </div>
-      <div class="box data3">
+      <div class="box data3" id="data3">
         <div class="box1">
           <div id="score1" class="score">
           </div>
-          <div class="infoStack">
+          <div class="infoStack noFade">
             <div>Back Score</div>
             <div>0.79</div>
           </div>
         </div>
         <div class="box2">
           <div id="score2" class="score"></div>
-          <div class="infoStack">
+          <div class="infoStack noFade">
             <div>Balance Score</div>
             <div>0.79</div>
           </div>
         </div>
         <div class="box3">
           <div id="score3" class="score"></div>
-          <div class="infoStack">
+          <div class="infoStack noFade">
             <div>Completion Score</div>
             <div>0.79</div>
           </div>
         </div>
       </div>
-      <div class="box data4">
+      <div class="box data4" id="data4">
         <canvas id="myChart3" width="100%" height="23vh"></canvas>
       </div>
   </div>

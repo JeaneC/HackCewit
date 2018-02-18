@@ -172,3 +172,7 @@ svg:hover path {
 	color: #ff0404;
 	font-size: 18px;
 }
+
+.noFade {
+	opacity: 0;
+}
