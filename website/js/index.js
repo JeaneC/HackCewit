@@ -109,6 +109,33 @@ let chart = new Chart({
 	format_tooltip_y: d => d + ' pts'
 });
 
+var ctx3 = document.getElementById('myChart3').getContext('2d');
+var myChart = new Chart(ctx3, {
+	type: 'line',
+	data: {
+		labels: [1, 2, 3, 4, 5, 6, 7],
+		datasets: [
+			{
+				data: [12, 19, 3, 17, 6, 3, 7],
+				backgroundColor: '#00C1C1',
+				label: 'Back'
+			},
+			{
+				data: [2, 29, 5, 5, 2, 3, 10],
+				backgroundColor: '#FEE734',
+				label: 'Balance'
+			},
+			{
+				data: [3, 15, 20, 14, 9, 6, 14],
+				backgroundColor: '#FA1474',
+				label: 'Completion'
+			}
+		]
+	},
+	options: {
+		legend: {}
+	}
+});
 //
 // var container = document.querySelector('.container');
 // container.addEventListener('click', function() {
