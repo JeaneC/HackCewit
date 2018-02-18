@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2955 635.5 24.137 40.229">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #04a5ff;
+      }
+    </style>
+  </defs>
+  <path id="ic_hourglass_empty_24px" class="cls-1" d="M6,2V14.069h.02l-.02.02,8.046,8.026L6,30.16l.02.02H6V42.229H30.138V30.181h-.02l.02-.02-8.046-8.046,8.046-8.026-.02-.02h.02V2ZM26.115,31.166v7.04H10.023v-7.04l8.046-8.046ZM18.069,21.109l-8.046-8.046V6.023H26.115v7.04Z" transform="translate(2949 633.5)"/>
+</svg>

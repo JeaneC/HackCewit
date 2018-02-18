@@ -29,7 +29,7 @@ body {
 .header {
 	display: flex;
 	align-items: center;
-	font-size: 26px;
+	font-size: 36px;
 	font-weight: bold;
 	color: #ff0404;
 	grid-column: 2 / -1;
@@ -151,7 +151,7 @@ svg:hover path {
 
 .header1 {
 	color: #ff0404;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: bold;
 	margin-top: 7%;
 }

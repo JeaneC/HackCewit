@@ -1,0 +1,9 @@
+export const PRIMARY = '#04A5FF';
+export const WHITE = '#FFFFFF';
+export const BLACK = '#000000';
+export const FADE = 0.3;
+export const LARGE = 70;
+export const MEDIUM = 50;
+export const SMALL = 12;
+export const BORDER_WIDTH = 6;
+export const BUTTON_BORDER_RADIUS = 15;

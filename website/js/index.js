@@ -103,7 +103,7 @@ function renderBarChart(data) {
 				display: true,
 				text: 'Reps Per Minute',
 				fontColor: '#04A5FF',
-				fontSize: 14
+				fontSize: 18
 			},
 			legend: {
 				display: false
