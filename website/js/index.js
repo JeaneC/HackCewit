@@ -176,7 +176,7 @@ $('#data2').animateCss('fadeIn', function() {
 	renderBarChart([]);
 });
 $('#data3').animateCss('fadeIn', function() {
-	renderProgressBarCircles(0.3, 0.4, 0.6);
+	renderProgressBarCircles(0.79, 0.47, 0.84);
 	setTimeout(function() {
 		$('.infoStack').animateCss('fadeIn');
 		$('.infoStack').each(function(ele) {
