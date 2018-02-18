@@ -45,9 +45,9 @@ class WorkoutScreen extends Component {
 		comments: [],
 		time: 0,
 		rep_count: 0,
-		avgScore: 0.64,
-		score: 0.0,
-		progress: 0,
+		avgScore: 0.0,
+		score: 0,
+		progress: 0.0,
 		gestureName: 'none'
 	};
 
@@ -58,49 +58,56 @@ class WorkoutScreen extends Component {
 
 	checkOnline = async () => {
 		let { data } = await axios.get('http://172.30.2.33:8080/getData');
+		let comments = [];
 
 		const old_rep_count = this.state.rep_count;
 		const old_score = this.state.score;
-		console.log(this.state.score);
 
 		let { rep_count, minimum_angle, session_clock, type } = data;
 		rep_count = Number(rep_count);
 		const time = Number(session_clock);
 
 		if (old_rep_count == rep_count) {
-			console.log('here');
 			return;
 		}
 
 		let { backCurvature, rightAngleElbow, rightAngleKnee } = minimum_angle;
 
-		let backScore = Math.floor(Number(backCurvature) * 70);
+		let backScore = Math.floor(Number(1.0 - backCurvature) * 100);
+		console.log(backCurvature);
+		console.log('back score is ', backScore, 1.0 - backCurvature);
 
 		let rightPart = type === 'pushup' ? rightAngleElbow : rightAngleKnee;
-		let rightScore = rightPart < 15 ? 30 : 30 - rightPart;
 
-		if (rightScore <= 0) {
-			rightScore = Math.floor(Math.random() * 10);
+		if (backScore < 80) {
+			comments.push('Keep your back straight');
 		}
 
-		let score = backScore + rightScore;
-
-		if (score >= 100) {
-			score = 99;
+		if (type === 'pushup') {
+			if (rightAngleElbow > 45) {
+				comments.push('Try to go down all the way');
+			}
+		} else {
+			if (rightAngleKnee > 55) {
+				comments.push('Try to go down all the way');
+			}
 		}
 
-		console.log(score);
+		if (comments.length == 0) {
+			comments.push('Great Job on the Form!');
+		}
+		let score = backScore + 0;
+
+		let avgScore = Math.floor(
+			(this.state.avgScore * (rep_count - 1) + score) / rep_count
+		);
 
 		// let score = averageScore;
 		// console.log(rightScore);
 
-		let comments = [];
-
-		this.setState({ comments: [] });
-
 		const average = this.state.avgScore * rep_count;
 		// let avgScore = ((average + score) / counter).toFixed(2);
-		this.setState({ comments, score, rep_count, avgScore: 0, time });
+		this.setState({ comments, score: backScore, rep_count, avgScore, time });
 		// this.setState({ comments, rep_count, score, time });
 		this.animate();
 	};
@@ -117,6 +124,8 @@ class WorkoutScreen extends Component {
 			setInterval(() => {
 				progress = progress + Math.random() / 5;
 				let score = this.state.score.toFixed(2) / 100;
+				console.log('here');
+				console.log(score, progress);
 				if (progress > score) {
 					progress = score;
 				}
@@ -134,13 +143,11 @@ class WorkoutScreen extends Component {
 	}
 
 	async onSwipeLeft(gestureState) {
-		console.log('hello world');
 		this.setState({ myText: 'You swiped left!' });
 	}
 
 	onSwipeRight = async gestureState => {
 		this.setState({ myText: 'You swiped right!' });
-		console.log('You swiped right');
 
 		let result = await axios.get(`http://172.30.2.33:8080/sessionClose`);
 		this.props.navigation.goBack();

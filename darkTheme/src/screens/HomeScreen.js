@@ -51,7 +51,7 @@ class HomeScreen extends Component {
 					animation="fadeIn"
 					duration={1000}
 				>
-					<Text style={styles.Header}>Spotify</Text>
+					<Text style={styles.Header}>Trainer</Text>
 				</Animatable.View>
 				<Animatable.View
 					style={styles.BodyContainer}
