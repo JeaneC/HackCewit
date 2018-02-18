@@ -3,6 +3,7 @@
 var score1 = document.querySelector('#score1');
 var score2 = document.querySelector('#score2');
 var score3 = document.querySelector('#score3');
+
 var bar = new ProgressBar.Circle(score1, {
 	color: '#28EBD2',
 	trailColor: '#eee',
@@ -20,7 +21,7 @@ var bar = new ProgressBar.Circle(score1, {
 var bar2 = new ProgressBar.Circle(score2, {
 	color: '#FEE734',
 	trailColor: '#eee',
-	trailWidth: 1,
+	trailWidth: 5,
 	duration: 1400,
 	easing: 'bounce',
 	strokeWidth: 9,
@@ -34,7 +35,7 @@ var bar2 = new ProgressBar.Circle(score2, {
 var bar3 = new ProgressBar.Circle(score3, {
 	color: '#FA1474',
 	trailColor: '#eee',
-	trailWidth: 1,
+	trailWidth: 5,
 	duration: 1400,
 	easing: 'bounce',
 	strokeWidth: 9,
