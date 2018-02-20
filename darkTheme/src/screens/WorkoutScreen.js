@@ -76,6 +76,9 @@ class WorkoutScreen extends Component {
 		let backScore = Math.floor(Number(1.0 - backCurvature) * 100);
 		console.log(backCurvature);
 		console.log('back score is ', backScore, 1.0 - backCurvature);
+		if (backScore == 100) {
+			return;
+		}
 
 		let rightPart = type === 'pushup' ? rightAngleElbow : rightAngleKnee;
 
@@ -130,7 +133,7 @@ class WorkoutScreen extends Component {
 					progress = score;
 				}
 				this.setState({ progress });
-			}, 1000);
+			}, 100);
 		}, 1000);
 	};
 
